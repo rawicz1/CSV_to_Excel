@@ -1,0 +1,62 @@
+﻿<Window x:Class="Bank_statement_to_excel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bank_statement_to_excel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+
+
+    <Grid>
+        
+        
+        <Menu>
+           
+            <MenuItem Header="_CA options" Margin="20, 10, 520, 0">
+                <MenuItem Header="Ignored">
+                    <MenuItem Header="_Show ignored entries" Click="ShowIgnored" />
+                    <MenuItem Header="_Add to ignored entries" Click="AddToIgnored" />
+                    <Separator/>
+                    <MenuItem Header="_Exit" Click="ExitApp"/>
+                </MenuItem>                
+                <Separator/>
+                <MenuItem Header="_Exit" Click="ExitApp"/>
+            </MenuItem>
+
+            <MenuItem Header="_CC options" Margin="0, 10, 0, 0">
+                <MenuItem Header="_Cut"/>
+                <MenuItem Header="_Copy"/>
+                <MenuItem Header="_Paste"/>
+            </MenuItem>
+            <!-- Add more menu items as needed -->
+        </Menu>
+
+        <Grid Margin="0,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="73"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition Width="361*"/>
+                <ColumnDefinition Width="400*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnLoadCA" Content="Load CSV CA" Click="BtnLoadCsvFile" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Margin="25,16,0,0" Height="20" Width="73" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="File1Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="64,18,0,0" Text="Loaded file:" Height="16" Grid.Column="1"/>
+            <DataGrid x:Name="dataGridView1" Margin="20,20,20,20" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <Button Name="btnLoadCC" Content="Load CSV CC" Click="BtnLoadCsvFile" HorizontalAlignment="Left" Margin="20,16,0,0" VerticalAlignment="Top" Grid.Column="2" Height="20" Width="72"/>
+            <TextBlock Name="File2Name" HorizontalAlignment="Left" Margin="97,16,0,0" TextWrapping="Wrap" Text="Loaded file:" VerticalAlignment="Top" Height="20" Grid.Column="2" />
+            <DataGrid x:Name="dataGridView2" Grid.Row="1" Grid.Column="2"  Margin="20,20,20,20"/>
+            <Button Name="BtnDeleteFromCA" Content="Delete type/bal" Click="Btn_CA_Delete" HorizontalAlignment="Left" Margin="25,47,0,0" VerticalAlignment="Top"  IsEnabled="False" Grid.ColumnSpan="2"/>
+            <Button Name="BtnDeleteFromCC" Content="Delete" Click="Btn_CC_Delete" HorizontalAlignment="Left" Margin="20,47,0,0" VerticalAlignment="Top"  IsEnabled="False" Grid.Column="2"  />
+            <Button Name="BtnMerge" Content="Merge" Click="BtnMergeDataGrids" HorizontalAlignment="Left" Margin="89,47,0,0" VerticalAlignment="Top"  IsEnabled="True" Grid.Column="2"  />
+           
+        </Grid>
+
+    </Grid>
+
+
+</Window>
